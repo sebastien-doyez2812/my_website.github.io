@@ -22,7 +22,7 @@
                     </ul>
                 </nav>
                 <div class="header-text">
-                    <p> Software Developer in AI, Computer Vision and Robotics</p>
+                    <p> Machine Learning & Software Engineer,</p>
                     <h1> Hi, I'm <span> Sébastien Doyez</span>, <br> from Montréal</h1>
                 </div>
 
@@ -86,11 +86,112 @@
 <!------ Portfolio------------>
 <div id="portfolio">
     <div class="container">
+    <!---Certifications-->
+    <div id="certifications" class="cert-section">
+        <h1 class="sub-title">Certifications</h1>
+        <p class="description">Certifications I've earned throughout my journey as a Machine Learning & Software Engineer, with a strong interest in Cloud and scalable AI solutions.
+Click on any badge to learn more!</p>
+        <div class="cert-carousel" id="certCarousel" aria-live="polite">
+            <div class="cert-track" id="certTrack">
+                <!-- Exemple d'items : remplacez images et data-* par vos vraies certifications -->
+                <div class="cert-item" tabindex="0"
+                        data-title="AWS Cloud Computing 101"
+                        data-issuer="AWS"
+                        data-date="2025"
+                        data-desc="Learning about the AWS Well Architected Framework. Introduction and small projects using AWS services: S3, SageMaker, EC2, VPC, IAM, Lambda."
+                        data-link="https://www.credly.com/badges/411ff797-dba7-43c9-985c-38fef4eef380/linked_in_profile"
+                        >
+                    <img src="images\certifs\aws_cloudcomputing101.png" alt="AWS Cloud Computing 101">
+                    <div class="title">AWS Cloud Computing 101</div>
+                    <div class="issuer">AWS — 2025</div>
+                </div>
+
+                <div class="cert-item" tabindex="0"
+                        data-title="AWS Machine Learning Foundations"
+                        data-issuer="AWS"
+                        data-date="2025"
+                        data-desc="Learning about SageMaker, building, training and deploying ML models on AWS."
+                        data-link="#"
+                        >
+                    <img src="images\certifs\aws_MLFoundations.png" alt="AWS Machine Learning Foundations">
+                    <div class="title">AWS Machine Learning Foundations</div>
+                    <div class="issuer">AWS — 2025</div>
+                </div>
+
+                <div class="cert-item" tabindex="0"
+                        data-title="Hugging Face - AI Agents Fundamentals, certificate of Excellence"
+                        data-issuer="Hugging Face"
+                        data-date="2025"
+                        data-desc="Final project: create an AI agents using LangGraph, able to answer a list of questions. I used Gwen2.5 in local with Ollama."
+                        data-link="#"
+                        >
+                    <img src="images\certifs\huggingface-2.svg" alt="Hugging Face: AI Agents Fundamentals, Excellence">
+                    <div class="title">Hugging Face:AI Agent Fundamentals</div>
+                    <div class="issuer">Hugging Face — 2025</div>
+                </div>
+
+
+                <div class="cert-item" tabindex="0"
+                        data-title="Hugging Face - AI Agents Fundamentals"
+                        data-issuer="Hugging Face"
+                        data-date="2025"
+                        data-desc="Creating AI agents using LangChain, LangGraph, LLamaIndex. Using LLMs such as Gwen2.5 in local with Ollama, but also with APIs."
+                        data-link="#"
+                        >
+                    <img src="images\certifs\huggingface-2.svg" alt="Hugging Face: AI Agents Fundamentals">
+                    <div class="title">Hugging Face:AI Agent Fundamentals</div>
+                    <div class="issuer">Hugging Face — 2025</div>
+                </div>
+
+                <div class="cert-item" tabindex="0"
+                        data-title="Hugging Face - MCP Fundamentals"
+                        data-issuer="Hugging Face"
+                        data-date="2025"
+                        data-desc="."
+                        data-link="#"
+                        >
+                    <img src="images\certifs\huggingface-2.svg" alt="Hugging Face: MCP Fundamentals">
+                    <div class="title">Hugging Face:MCP Fundamentals</div>
+                    <div class="issuer">Hugging Face — 2025</div>
+                </div>
+
+                <div class="cert-item" tabindex="0"
+                        data-title="Hugging Face - MCP, Automation in Production"
+                        data-issuer="Hugging Face"
+                        data-date="2025"
+                        data-desc="."
+                        data-link="#"
+                        >
+                    <img src="images\certifs\huggingface-2.svg" alt="Hugging Face: MCP, Automation in Production">
+                    <div class="title">Hugging Face: MCP, Automation in Production</div>
+                    <div class="issuer">Hugging Face — 2025</div>
+                </div>
+                <!-- Dupliquez/ajoutez d'autres .cert-item ici -->
+            </div>
+
+    </div>
+    </div>
     <h1 class="sub-title">My Work</h1> 
     <br>
     <h2 class="description"> This is some of my projects I had worked on:</h2>
     <br>
-    <!---<div class="work-list"> -->
+    <!-- Modal pour affichage détail certification -->
+    <div class="cert-modal" id="certModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="card" role="document">
+            <button class="close-btn" id="certClose" aria-label="Fermer">&times;</button>
+            <img id="modalImg" src="" alt="">
+            <h2 id="modalTitle"></h2>
+            <p><strong id="modalIssuer"></strong> — <span id="modalDate"></span></p>
+            <p id="modalDesc"></p>
+            <p><a id="modalLink" href="#" target="_blank" rel="noopener">Voir la certification</a></p>
+        </div>
+    </div>
+
+
+
+
+    <!---Work and Projects -->
+
     <div class="work">
         <img src="images/SAMI.png"> </img>
         <br>
@@ -228,7 +329,8 @@
         </div>
     </div>
 </div>
-        <script>
+         <script>
+            // onglets (existant)
             var tablinks = document.getElementsByClassName("tab-links");
             var tabcontents = document.getElementsByClassName("tab-contents");
             function opentab(tabname){
@@ -242,8 +344,59 @@
                 event.currentTarget.classList.add("active-link");
                 document.getElementById(tabname).classList.add("active-tab")
             }
+
+            // --- Certifications : ouverture modal au clic / clavier ---
+            (function(){
+                var items = document.querySelectorAll('.cert-item');
+                var modal = document.getElementById('certModal');
+                var closeBtn = document.getElementById('certClose');
+                var modalImg = document.getElementById('modalImg');
+                var modalTitle = document.getElementById('modalTitle');
+                var modalIssuer = document.getElementById('modalIssuer');
+                var modalDate = document.getElementById('modalDate');
+                var modalDesc = document.getElementById('modalDesc');
+                var modalLink = document.getElementById('modalLink');
+
+                if(!modal) return; // sécurité si modal manquant
+
+                function openModal(el){
+                    var img = el.querySelector('img');
+                    modalImg.src = img ? img.src : '';
+                    modalImg.alt = img ? img.alt : '';
+                    modalTitle.textContent = el.dataset.title || '';
+                    modalIssuer.textContent = el.dataset.issuer || '';
+                    modalDate.textContent = el.dataset.date || '';
+                    modalDesc.textContent = el.dataset.desc || '';
+                    modalLink.href = el.dataset.link || '#';
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden','false');
+                    // focus for accessibility
+                    closeBtn.focus();
+                }
+
+                function closeModal(){
+                    modal.classList.remove('open');
+                    modal.setAttribute('aria-hidden','true');
+                }
+
+                items.forEach(function(it){
+                    it.addEventListener('click', function(){ openModal(it); });
+                    it.addEventListener('keydown', function(e){
+                        if(e.key === 'Enter' || e.key === ' '){
+                            e.preventDefault();
+                            openModal(it);
+                        }
+                    });
+                });
+
+                closeBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', function(e){
+                    if(e.target === modal) closeModal();
+                });
+                document.addEventListener('keydown', function(e){
+                    if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+                });
+            })();
         </script>
-
-
     </body>
 </html>
