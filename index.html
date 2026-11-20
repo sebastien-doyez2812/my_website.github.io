@@ -18,8 +18,9 @@
                         <li><a href="#header">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href= "#certifications">Certifications</a></li>
-                        <li><a href="#portfolio">My projects</a></li>
-                        <li><a href="https://github.com/sebastien-doyez2812" target="_blank"> My GitHub</a></li>
+                        <li><a href="#portfolio">Work Experiences</a></li>
+                        <li><a href="#personal_projects">Personal Projects</a></li>
+                        <li><a href="https://github.com/sebastien-doyez2812" target="_blank">GitHub</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -213,7 +214,7 @@
 <div id="portfolio">
     <div class="container">
     
-    <h1 class="sub-title">My Work</h1> 
+    <h1 class="sub-title">My Work Experiences</h1> 
 
     <!-- Modal pour affichage détail certification -->
     <div class="cert-modal" id="certModal" role="dialog" aria-modal="true" aria-hidden="true">
@@ -239,7 +240,7 @@
     <!---Side Project-->
 
     <br>
-    <h2 class="description"> This is some of my projects I have worked on as an engineer:</h2>
+    <h2 class="description"> Here are some of my projects I have worked on as an engineer:</h2>
     <br>
 
 
@@ -293,7 +294,7 @@
     <br>
    
     <div class="work">
-        <video autoplay muted src="images/ETS.mp4"></video>
+        <video autoplay loop muted src="images/ETS.mp4"></video>
         <br>
         <div class= "layer">
             <h3>Integration of machine learning algorithms into drones and rovers.</h3>
@@ -307,12 +308,57 @@
         </div>
     </div>
 
+    <div id="personal_projects">
+        <br>
+        <br>
+        <h1 class="sub-title">My Personnal Projects:</h1> 
+        <br>
+        <h2 class="description"> Here are the personal projects I'm most proud of:</h2>
+        <br>
+
+
+        <div class="work">
+            <video autoplay loop muted src="images/mlgui.mp4"></video>
+            <br>
+                <div class= "layer">
+                <h3>MLGUI, MLOps interface</h3>
+                <br>
+                    <p>
+                    <p>
+                    <strong>MLGUI</strong> is a standalone PyQt desktop application designed to streamline end-to-end MLOps workflows, from data labeling and preprocessing to model training and validation. Built with a View-Model-Backend architecture to decouple UI state from execution logic, it interfaces directly with OpenMLCore to train and benchmark 2D and 3D segmentation models (achieving up to 98% accuracy on 2D cell segmentation and 93.2% on 3D point clouds).
+                    </p>
+                    </p>
+                <a href="https://sebastien-doyez2812.github.io/MLGUI_web_page/"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+        </div>
+        <br>
+        <br>
+
+
+        <div class="work">
+            <img src="images/openMLcore.png"> </img>
+            <br>
+                <div class= "layer">
+                <h3>OpenMLCore, Wrapper/ Framework to make Machine Learning easier for everyone</h3>
+                <br>
+                    <p>
+                    <strong>OpenMLCore</strong> is an open-source PyTorch wrapper framework published on PyPI that streamlines deep learning workflows with built-in pretrained architectures for 2D and 3D semantic segmentation. Benchmarked across multiple datasets, reaching up to 98% accuracy (0.87 IoU) on 2D cell segmentation (U-Net, Attention U-Net) and 93.2% accuracy on 3D point clouds (PointNet, PointNet++), its pretrained weights and full documentation are publicly available on Hugging Face.
+                    </p>
+                <a href="https://sebastien-doyez2812.github.io/openMLCore.github.io/index.html"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+        </div>
+        <br>
+        <br>
+    </div>
+
     <br>
-    <h2 class="description"> Other projects:</h2>
+    <h2 class="description"> Some other projects:</h2>
     <br>
 
 
-<div class="work">
+    <div class="work">
         <img src="images/SkateSpotAdvisor.png"> </img>
         <br>
             <div class= "layer">
@@ -418,7 +464,7 @@
         </div>
     </div>
 
-
+<!-- 
     <br><br>
     <div class="work">
     <img src="images/Coppelia.png"> </img>
@@ -435,7 +481,7 @@
         
 </div>
 
-</div>
+</div> -->
 
     </div>
 </div>
